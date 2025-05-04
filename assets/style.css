@@ -15,7 +15,7 @@
 }
 
 body {
-	font-family: 'Ownglyph_corncorn-Rg'
+	font-family: 'Ownglyph_corncorn-Rg';
 	transition: background 500ms ease;
 	background-color: #faeea7;
 }
