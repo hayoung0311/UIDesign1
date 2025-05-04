@@ -6,26 +6,8 @@
 
 /* adjusting fonts */
 
-
-@font-face {
-<<<<<<< HEAD
-    font-family: 'PyeojinGothic-Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2504-1@1.0/PyeojinGothic-Bold.woff2') format('woff2');
-    font-weight: 400;
-=======
-    font-family: 'Ownglyph_corncorn-Rg';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
-    font-weight: normal;
->>>>>>> 8f34f87197de28b0164a32af808e5637adc0de0f
-    font-style: normal;
-}
-
 body {
-<<<<<<< HEAD
-	font-family: 'PyeojinGothic-Bold';
-=======
-	font-family: 'Ownglyph_corncorn-Rg';
->>>>>>> 8f34f87197de28b0164a32af808e5637adc0de0f
+	font-family: -apple-system, BlinkMacSystemFont, helvetica, arial, sans-serif;
 	transition: background 500ms ease;
 	background-color: #faeea7;
 }
@@ -39,7 +21,7 @@ p, li {
 /* adjusting spacing */
 
 #left-column {
-	padding: 20px;
+	padding: 40px;
 }
 
 h1, p {
