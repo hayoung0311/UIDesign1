@@ -1,0 +1,70 @@
+* {
+	margin:  0px;
+	padding:  0px;
+	box-sizing: border-box;
+}
+
+/* adjusting fonts */
+
+
+@font-face {
+    font-family: 'Ownglyph_corncorn-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'Ownglyph_corncorn-Rg';
+	transition: background 500ms ease;
+	background-color: #faeea7;
+}
+
+
+p, li {
+	font-size:  22px;
+	line-height: 30px;
+}
+
+/* adjusting spacing */
+
+#left-column {
+	padding: 20px;
+}
+
+h1, p {
+	margin-bottom:  20px;
+}
+
+ul, ol {
+	margin-left: 20px;
+}
+
+img {
+	max-width: 100%;
+	height:  auto;
+}
+
+/* uncomment the code below to set the grid */
+
+/*#grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+body {
+	overflow: hidden;
+}
+
+.scroll {
+	padding:  20px;
+	overflow: scroll;
+	height: 100vh;
+}
+
+#left-column {
+}
+
+#right-column {
+	background: #333;
+}*/
