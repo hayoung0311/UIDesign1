@@ -121,10 +121,149 @@ body {
   left: 490px;
   position: absolute;
   z-index: 20;
+}
 
+  #doll {
+    width: 150px;
+    height: 170px;
+    background: #ffd62e;
+    border-radius: 90px;
+    top: 120px;
+    left: 560px;
+    position: absolute;
+    z-index: 100;
+}
+
+#doll2 {
+    width: 39px;
+    height: 102px;
+    background: #fff9d9;
+    border-radius: 100px;
+    top: 180px;
+    left: 678px;
+    position: absolute;
+    z-index: 110;
+}
+
+#doll3 {
+    width: 120px;
+    height: 130px;
+    background: #ffd62e;
+    border-radius: 150px;
+    top: 250px;
+    left: 580px;
+    position: absolute;
+    z-index: 90;
+}
+
+#doll4 {
+    width: 60px;
+    height: 100px;
+    background: white;
+    border-radius: 180px;
+    top: 270px;
+    left: 640px;
+    position: absolute;
+    z-index: 95;
+}
+
+#doll5 {
+    width: 55px;
+    height: 60px;
+    background: white;
+    border-radius: 20px;
+    top: 130px;
+    left: 600px;
+    position: absolute;
+    clip-path: polygon(0% 0%, 0% 100%, 70% 20%);
+    z-index: 120;
+}
+
+#doll10 {
+    width: 79px;
+    height: 84px;
+    background: #ffd62e;
+    border-radius: 20px;
+    top: 111px;
+    left: 589px;
+    position: absolute;
+    clip-path: polygon(0% 0%, 0% 100%, 70% 20%);
+    z-index: 115;
+  }
+
+#doll6 {
+    width: 65px;
+    height: 63px;
+    background: #ffa22e;
+    border-radius: 40px;
+    top: 150px;
+    left: 669px;
+    clip-path: polygon(40% 0%, 0% 100%, 100% 60%);
+    position: absolute;
+    z-index: 150;
+}
+
+#doll7 {
+    width: 37px;
+    height: 31px;
+    background: #fff9d9;
+    border-radius: 150px;
+    top: 229px;
+    left: 698px;
+    position: absolute;
+    z-index: 160;
+  }
+
+#doll8 {
+    width: 40px;
+    height: 70px;
+    background: white;
+    border-radius: 150px;
+    top: 312px;
+    left: 590px;
+    position: absolute;
+    z-index: 180;
+    transform: rotate(11deg);
+    transform-origin: left top;
+}
+
+#doll9 {
+    width: 20px;
+    height: 40px;
+    background: white;
+    border-radius: 150px;
+    top: 352px;
+    left: 600px;
+    position: absolute;
+    z-index: 180;
+    transform: rotate(328deg);
+    transform-origin: left top;
+}
+
+#doll11 {
+    width: 40px;
+    height: 59px;
+    background: white;
+    border-radius: 22px;
+    top: 330px;
+    left: 693px;
+    position: absolute;
+    z-index: 180;
+}
+
+#doll12 {
+    width: 46px;
+    height: 51px;
+    background: #ffd62e;
+    border-radius: 20px;
+    top: 337px;
+    left: 661px;
+    position: absolute;
+    z-index: 170;
+}
 	/* uncomment for css transitions */
 	/* transition: all 400ms ease; */
-}
+
 
 /* animations */
 
