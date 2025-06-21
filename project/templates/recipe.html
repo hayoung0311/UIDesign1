@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+
+<style>
+    
+    @font-face {
+        font-family: 'Buenard';
+        font-style: normal;
+        src: url('/font/Buenard-VariableFont_wght.ttf') format('truetype');
+        }
+
+     @font-face {
+        font-family: 'Rozha One';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/font/RozhaOne-Regular.ttf') format('truetype');
+        }
+
+
+    body {
+            /*overflow-y: auto;*/
+            /*display: grid;
+            place-items: center;*/
+            
+            margin: 0;
+            background-image: url("/static/background.png");
+            background-repeat: repeat;
+            background-position: top left;
+            background-size: 1080px 1920px;
+
+            -ms-overflow-style: none;  /* IE, Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+    html {
+            /*overflow-y: auto;*/
+            -ms-overflow-style: none;  /* IE, Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+
+     .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            display: flex;
+            width: 152.38px;
+            height: 64px;
+            padding: 6px 24px 11px 24px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            border-radius: 45.759px;
+            background: #0400FF;
+            position: absolute;
+            box-sizing: border-box; 
+
+            color: #FFF;
+            font-family: Buenard;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-align: center;
+            text-decoration: none;
+            padding-top: 5.95px;
+            padding-bottom: 13.5px;
+            
+            top: 55px;
+            right: 61.6px;
+        }
+
+        h1 {
+            color: #0400FF;
+            text-align: center;
+            font-family: "Rozha One";
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin-top: 100px;
+            margin-bottom: 0px;
+
+            z-index: 2;
+        }
+
+        .date {
+            height: 47px;
+            color: #0400FF;
+            text-align: center;
+            font-family: Buenard;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 11px;
+            margin-bottom: 0px;
+        }
+
+        .author {
+            height: 47px;
+            color: #0400FF;
+            text-align: center;
+            font-family: Buenard;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+
+        .content {
+            border-radius: 15px;
+            border: none;
+            resize: none;
+            color: #0400FF;
+            font-family: Buenard;
+            font-size: 25px;
+            padding: 15px;
+            margin: 0 auto 40px auto;
+            width: 85%;
+        }
+
+        h3 {
+            color: #0400FF;
+            text-align: center;
+            font-family: Buenard;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        ul {
+            list-style: none;
+            color: #0400FF;
+            font-family: Buenard;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+            margin: 0 auto;
+            padding: 0;
+            width: 85%;
+        }
+
+        .scroll-box {
+            position: relative;
+            /*top: 149px;
+            display: grid;
+            place-items: center;*/
+            width: 797.846px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 16px;
+            z-index: 1;
+            padding: 20px;
+            
+
+           /* margin: 150px auto 60px auto;u*/
+
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #0400FF;
+            width: 665px;
+            margin: 30px auto 0px auto;
+        }
+
+        .dott {
+            border: none;
+            border-top: 1px dashed #0400FF;
+            width: 448px;
+            margin: 0px auto 0px auto;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        li .dott {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .name {
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+
+        .value {
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;  /* 상단 정렬 */
+            margin-top: 150px;
+            gap: 30px;  /* 둘 사이 간격 (좁히기) */
+            margin-bottom: 40px;
+        }
+
+        .image-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 150PX;
+        }
+
+        .ingredient-img {
+            width: 150px;  /* 적절한 크기로 조절 */
+            height: 150px;
+            object-fit: contain;
+        }
+
+
+
+
+</style>
+
+<body>
+
+    <a href="/" class="btn">Home</a>
+
+    <div class="main-container">
+        <div class="scroll-box">
+
+        <h1>{{ title }}</h1>
+        <p class="date">{{ date }}</p>
+        <p class="author">{{ author }}</p>
+
+        <hr class="divider">
+
+        <h3>INGREDIENTS</h3>
+        <ul>
+            {% for name, value in ingredients.items() %}
+                <li><span>{{ name }}</span> 
+                <div class="dott"></div>
+                <span>{{ value }}</span></li>
+            {% endfor %}
+        </ul>
+        <hr class="divider" style="margin-top: 50px;">
+        <h3 style="margin-bottom: 20px;">RECIPE</h3>
+        <p class="content">{{ content | safe }}</p>
+        </div>
+
+        <div class="image-box">
+            {% for name, value in ingredients.items() %}
+                {% if value != "0" %}
+                <img src="/static/ingredients/{{ name }}.png" alt="{{ name }}" class="ingredient-img">
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div>
+
+</body>
+</html>
+

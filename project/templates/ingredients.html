@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasta Archive</title>
+    <style>
+        @font-face {
+            font-family: 'Buenard';
+            font-style: normal;
+            src: url('/font/Buenard-VariableFont_wght.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Rozha One';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/font/RozhaOne-Regular.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            background-image: url("/static/background.png");
+            background-repeat: repeat;
+            background-position: top left;
+            background-size: 1080px 1920px;
+            font-family: 'Buenard';
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        html {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        h1 {
+            color: #0400FF;
+            text-align: center;
+            font-family: 'Rozha One';
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin: 56.89px auto 0px auto;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .row {
+            display: flex;
+            gap: 45px;
+            justify-content: center;
+        }
+        .ingredient {
+            display: flex;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .ingredient img {
+            max-width: 150px;
+            max-height: 150px;
+            width: auto;
+            height: auto;
+        }
+
+        .ingredient:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+        }
+
+        .overlay {
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 29, 251, 0.105);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .ingredient.active .overlay {
+            opacity: 1;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            font-size: 18px;
+            color: #0400FF;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .count {
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+        }
+        .submit-btn {
+            bottom: 90px;
+            display: block;
+            border-radius: 45.759px;
+            background: #0400FF;
+            box-sizing: border-box; 
+            border: none;
+            width: 115.705px;
+            height: 64px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 50px auto 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select the ingredients</h1>
+    <form method="POST" id="ingredients-form">
+        <div class="container">
+            {% for row in range(4) %}
+            <div class="row">
+                {% for col in range(6) %}
+                    {% set index = row * 6 + col %}
+                    {% set key = ingredient_keys[index] %}
+                    <div class="ingredient" onclick="activate('{{ key }}')">
+                        <img src="/static/ingredients/{{ key }}.png" alt="{{ key }}">
+                        <div class="overlay" id="overlay-{{ key }}">
+                            <div class="controls">
+                                <button type="button" class="btn-circle" onclick="event.stopPropagation(); decrease('{{ key }}')">-</button>
+                                <span class="count" id="count-{{ key }}">0</span>
+                                <button type="button" class="btn-circle" onclick="event.stopPropagation(); increase('{{ key }}')">+</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+        <input type="hidden" name="counts" id="counts-input">
+        <button type="submit" onclick="prepareData()" class="submit-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="55" height="38" viewBox="0 0 55 38" fill="none">
+                <path d="M3.19678 16.1661C1.81607 16.1661 0.696777 17.2854 0.696777 18.6661C0.696777 20.0468 1.81607 21.1661 3.19678 21.1661V16.1661ZM53.414 20.4338C54.3903 19.4575 54.3903 17.8746 53.414 16.8983L37.5041 0.988407C36.5278 0.0120964 34.9449 0.0120964 33.9686 0.988407C32.9923 1.96472 32.9923 3.54763 33.9686 4.52394L48.1107 18.6661L33.9686 32.8082C32.9923 33.7845 32.9923 35.3674 33.9686 36.3437C34.9449 37.3201 36.5278 37.3201 37.5041 36.3437L53.414 20.4338ZM3.19678 18.6661V21.1661H51.6462V18.6661V16.1661H3.19678V18.6661Z" fill="white"/>
+            </svg>
+        </button>
+        <input type="hidden" id="counts-data" value='{{ counts | tojson | safe }}'>
+    </form>
+
+<script>
+    const counts = JSON.parse(document.getElementById('counts-data').value);
+    const INGREDIENTS = JSON.parse('{{ ingredients | tojson | safe }}');
+
+    function activate(item) {
+        document.getElementById('overlay-' + item).parentElement.classList.add('active');
+    }
+
+    function formatAmount(item) {
+        const amount = counts[item];
+        let unit = INGREDIENTS[item]?.unit || '';
+        if (unit === 'piece') {
+            unit = 'p';
+        }
+        if (unit === 'serving') {
+            unit = 's';
+        }
+        return `${amount} ${unit}`;
+    }
+
+    function increase(item) {
+        const step = INGREDIENTS[item]?.per_click_amount || 1;
+        counts[item] += step;
+        document.getElementById('count-' + item).innerText = formatAmount(item);
+    }
+
+    function decrease(item) {
+        const step = INGREDIENTS[item]?.per_click_amount || 1;
+        counts[item] = Math.max(0, counts[item] - step);
+        document.getElementById('count-' + item).innerText = formatAmount(item);
+    }
+
+    function prepareData() {
+        document.getElementById('counts-input').value = JSON.stringify(counts);
+    }
+
+    // 처음 페이지 로드할 때도 포맷 맞게 표시
+    window.onload = function() {
+        for (const item in counts) {
+            document.getElementById('count-' + item).innerText = formatAmount(item);
+        }
+    }
+</script>
+
+</body>
+</html>

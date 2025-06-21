@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pasta Archive</title>
+    <style>
+        body {
+            background-color: rgb(245, 243, 220);
+        
+            @font-face {
+                font-family: 'Buenard';
+                font-style: normal;
+                font-weight: 600;
+                src: url('/font/Buenard-VariableFont_wght.ttf') format('truetype');
+            }
+
+            @font-face {
+                font-family: 'Rozha One';
+                font-style: normal;
+                src: url('/font/RozhaOne-Regular.ttf') format('truetype');
+            }
+
+            margin: 0;
+            background-image: url("/static/background.png");
+            background-size: cover;
+            background-position: center;
+            overflow-y: auto;
+            display: grid;
+            place-items: center;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        html {
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0400FF;
+            font-size: 50px;
+            margin-top: 50px;
+            font-family: 'Rozha One';
+        }
+        .plate-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            cursor: pointer;
+        }
+        .plate-frame {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 0; left: 0;
+            z-index: 1;
+        }
+        .plate-photo {
+            position: absolute;
+            width: 299px;
+            height: 299px;
+            border-radius: 50%;
+            object-fit: cover;
+            top: 0; left: 0;
+            z-index: 0;
+        }
+
+        .plate-frame:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+        }
+
+        .btn {
+            width: 152px;
+            height: 64px;
+            background: #0400FF;
+            color: #FFF;
+            font-family: Buenard;
+            font-size: 32px;
+            font-weight: 700;
+            border-radius: 45px;
+            border: none;
+            margin: 0 auto;
+            display: block;
+            cursor: pointer;
+            position: absolute;
+            top: 49px;
+            right: 51.31px;
+        }
+        .content {
+            width: 797px;
+            height: 242px;
+            border-radius: 15px;
+            background: white;
+            border: none;
+            resize: none;
+            color: #0400FF;
+            font-family: Buenard;
+            font-size: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+            line-height: 0.7;
+        }
+
+        .title-input {
+            width: 500px;
+            height: 30px;
+            border-radius: 15px;
+            background: white;
+            border: none;
+            resize: none;
+            color: #0400FF;
+            font-family: Buenard;
+            font-size: 30px;
+            padding: 30px;
+            margin-bottom: 7px;
+            box-sizing: border-box;
+        }
+
+        .author-input {
+            width: 277px;
+            height: 30px;
+            border-radius: 15px;
+            background: white;
+            border: none;
+            resize: none;
+            color: #0400FF;
+            font-family: Buenard;
+            font-size: 30px;
+            padding: 30px;
+            margin-bottom: 7px;
+            box-sizing: border-box;
+        }
+
+        .title-author-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 7px;
+        }
+
+        .content:focus, .title-input:focus, .author-input:focus { outline: none; }
+        input::placeholder { color: rgb(163, 163, 163); font-size: 20px; padding: 5px}
+        textarea::placeholder { color: rgb(163, 163, 163); font-size: 20px; padding: 5px; line-height: 1.2;}
+    </style>
+</head>
+<body>
+
+<h1 style="height: 78.895px; top: 70px;">Upload Pasta Image</h1>
+
+<form action="/upload" method="post" enctype="multipart/form-data" style="text-align: center;">
+    <input type="file" name="file" id="fileInput" style="display: none;" onchange="previewImage()">
+    <div class="plate-container" onclick="document.getElementById('fileInput').click();">
+        <img id="previewImage" src="/static/plate btn.png" alt="Upload" class="plate-photo">
+        <img src="/static/frame2.png" class="plate-frame">
+    </div>
+
+    <h1>Write your recipe</h1>
+
+    <div class="title-author-container">
+        <input type="text" name="title" class="title-input" placeholder="write your recipe title">
+        <input type="text" name="author" class="author-input" placeholder="your name">
+    </div>
+
+    <textarea name="content" class="content" placeholder="write your recipe&#10please wirte recipe with numbers for order"></textarea>
+    <button type="submit" class="btn">Save</button>
+</form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileInput = document.getElementById('fileInput');
+        const previewImage = document.getElementById('previewImage');
+
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+{
+    "garlic": {
+        "name": "garlic",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+    "onion": {
+        "name": "onion",
+        "unit": "piece",
+        "per_click_amount": 0.5
+    },
+    "mushroom": {
+        "name": "mushroom",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+    "spinach": {
+        "name": "spinach",
+        "unit": "g",
+        "per_click_amount": 10
+    },
+    "olive": {
+        "name": "olive",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+     "pepper": {
+        "name": "pepper",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+
+     "black_pepper": {
+        "name": "black_pepper",
+        "unit": "g",
+        "per_click_amount": 2
+    },
+
+     "salt": {
+        "name": "salt",
+        "unit": "g",
+        "per_click_amount": 2
+    },
+
+     "basil": {
+        "name": "basil",
+        "unit": "leaf",
+        "per_click_amount": 1
+    },
+
+     "butter": {
+        "name": "butter",
+        "unit": "g",
+        "per_click_amount": 10
+    },
+
+     "cheese": {
+        "name": "cheese",
+        "unit": "g",
+        "per_click_amount": 10
+    },
+
+     "tomato": {
+        "name": "tomato",
+        "unit": "piece",
+        "per_click_amount": 0.5
+    },
+
+     "anchovy": {
+        "name": "anchovy",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+
+     "baccon": {
+        "name": "baccon",
+        "unit": "g",
+        "per_click_amount": 10
+    },
+
+     "shrimp": {
+        "name": "shrimp",
+        "unit": "piece",
+        "per_click_amount": 1
+    },
+
+     "chicken_stock": {
+        "name": "chicken_stock",
+        "unit": "g",
+        "per_click_amount": 2
+    },
+
+     "spaghettini": {
+        "name": "spaghettini",
+        "unit": "serving",
+        "per_click_amount": 1
+    },
+
+     "tagliatelle": {
+        "name": "tagliatelle",
+        "unit": "serving",
+        "per_click_amount": 1
+    },
+     "regatoni": {
+        "name": "regatoni",
+        "unit": "serving",
+        "per_click_amount": 1
+    },
+
+     "fusilli": {
+        "name": "fusilli",
+        "unit": "serving",
+        "per_click_amount": 1
+    },
+
+    "milk": {
+        "name": "milk",
+        "unit": "ml",
+        "per_click_amount": 20
+    },
+
+    "cream": {
+        "name": "cream",
+        "unit": "ml",
+        "per_click_amount": 20
+    },
+
+    "tomato_paste": {
+        "name": "tomato_paste",
+        "unit": "g",
+        "per_click_amount": 20
+    },
+    
+    "olive_oil": {
+        "name": "olive_oil",
+        "unit": "ml",
+        "per_click_amount": 5
+    }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pasta Archive</title>
+    <style>
+        body {
+            @font-face {
+                font-family: 'Buenard';
+                font-style: normal;
+                font-weight: 600;
+                src: url('/font/Buenard-VariableFont_wght.ttf') format('truetype');
+            }
+
+            @font-face {
+                font-family: 'Rozha One';
+                font-style: normal;
+                font-weight: 400;
+                src: url('/font/RozhaOne-Regular.ttf') format('truetype');
+            }
+
+            margin: 0;
+            /*height: 100vh;*/
+            background-image: url("/static/background.png");
+            background-size: cover;
+            background-position: center;
+            
+            display: grid;
+            place-items: center;
+
+        }
+
+        h1 {
+            font-family: 'Rozha One';
+            font-size: 64px;
+            color: #0400FF;
+            text-align: center;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-align: center;
+            top: 56.89px;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            display: flex;
+            width: 259.38px;
+            height: 64px;
+            padding: 6px 24px 11px 24px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            border-radius: 45.759px;
+            background: #0400FF;
+            position: absolute;
+            box-sizing: border-box; 
+
+            color: #FFF;
+            font-family: Buenard;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            text-align: center;
+            text-decoration: none;
+            padding-top: 5.95px;
+            padding-bottom: 13.5px;
+            
+            top: 65px;
+            left: 1162px;
+        }
+
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            align-items: center;
+            width: 100%;
+            height: 800px;
+        }
+
+        .row-1 {
+            width: 1415px;
+        }
+
+        .row-2 {
+            width: 1193px;
+        }
+
+        .row-3 {
+            width: 1415px;
+        }
+
+        .plate {
+            position: relative;
+            width: 227px;
+            height: 227px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .photo {
+            width: 226px;
+            height: 226px;
+            object-fit: cover;
+            filter: brightness(100%);
+            display: block;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        .frame {
+            position: absolute;
+            top: 0; left: 0;
+            width: 227px;
+            height: 227px;
+        }
+
+        .plate:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+        }
+
+        .row-container {
+            display: flex;
+            flex-direction: row;
+            gap: 11px;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Pasta Archive</h1>
+<a href="/ingredients" class="btn">Add your pasta</a>
+
+<div class="row-container row-1">
+    {% for image in row1 %}
+    <a href="/recipe/{{ image }}">
+        <div class="plate">
+            <img src="/static/upload/{{ image }}" class="photo">
+            <img src="/static/frame.png" class="frame">
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<div class="row-container row-2" style="margin: 14px;">
+    {% for image in row2 %}
+    <a href="/recipe/{{ image }}">
+        <div class="plate">
+            <img src="/static/upload/{{ image }}" class="photo">
+            <img src="/static/frame.png" class="frame">
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<div class="row-container row-3">
+    {% for image in row3 %}
+    <a href="/recipe/{{ image }}">
+        <div class="plate">
+            <img src="/static/upload/{{ image }}" class="photo">
+            <img src="/static/frame.png" class="frame">
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+</body>
+</html>
