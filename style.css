@@ -34,6 +34,7 @@ h1, p {
 
 ul, ol {
 	margin-left: 20px;
+	outline-style: none;
 }
 
 img {
@@ -53,6 +54,20 @@ body.dark {
 
 body.dark a {
 	color: #37ff00;
+}
+
+#darkmode {
+	border: none;
+	background-color: orange;
+	color: black;
+	padding: 5px;
+	border-radius: 50%;
+}
+
+body.dark #darkmode{
+	background-color: #37ff00;
+	color: white;
+
 }
 
 /* uncomment the code below to set the grid */
